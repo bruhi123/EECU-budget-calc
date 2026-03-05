@@ -2,7 +2,7 @@
   --primary-color: #0059a6;
   --housing-color: #8c63da;
   --util-color: #f4cf3b;
-  --grocieries-color: #55c4ae;
+  --groceries-color: #55c4ae;
   --trans-color: #8979ff;
   --shopping-color: #ffae4c;
   --entertainment-color: #537ff1;
@@ -20,10 +20,108 @@
   --font-family: Arial, sans-serif;
 }
 
+/*these set the color dots for each of the monthly expenses*/
+#house{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--housing-color);
+  margin-right: 10px;
+}
+
+#util{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--util-color);
+  margin-right: 10px;
+}
+
+#gro{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--groceries-color);
+  margin-right: 10px;
+}
+
+#trans{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--trans-color);
+  margin-right: 10px;
+}
+
+#shop{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--shopping-color);
+  margin-right: 10px;
+}
+
+#enter{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--entertainment-color);
+  margin-right: 10px;
+}
+
+#subs{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--subscriptions-color);
+  margin-right: 10px;
+}
+
+#heal{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--health-color);
+  margin-right: 10px;
+}
+
+#net{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--internet-color);
+  margin-right: 10px;
+}
+
+#edu{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--education-color);
+  margin-right: 10px;
+}
+
+#save{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--savings-color);
+  margin-right: 10px;
+}
+
+#trav{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--travel-color);
+  margin-right: 10px;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: var(--font-family);
 }
 
 h1 {
@@ -42,8 +140,9 @@ nav {
 
 main {
   display: grid;
-  grid-template: auto / 300px auto 300px;
-  justify-content: space-between;
+  grid-template: auto / 25% 40% 25%;
+  gap: 10px
+  
 }
 
 .mainSection {
@@ -94,6 +193,7 @@ section > h2 {
 
 
 /* Monthy Income Section */
+
 #totalIncome {
   background-color: var(--income-green);
 }
@@ -105,6 +205,10 @@ section > h2 {
 
 #totalExpenses {
   background-color: var(--expenses-red);
+}
+
+#incomeList img{
+  margin-right: 10px;
 }
 
 
