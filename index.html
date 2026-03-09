@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Budget Calculator</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -23,48 +25,48 @@
         <li class="listItem">
           <img src="images/Frame.png" />
           <span>Salary</span>
-          <input type="text" id="salary" name="salary" placeholder="$" />
+          <input type="text" id="salary" name="salary" placeholder="$" onchange="updateValues()" />
         </li>
         <li class="listItem">
           <img src="images/Frame.png" />
           <span>Investments</span>
-          <input type="text" id="investments" name="investments" placeholder="$" />
+          <input type="text" id="investments" name="investments" placeholder="$" onchange="updateValues()" />
         </li>
         <li class="listItem">
           <img src="images/Frame.png" />
           <span>Business</span>
-          <input type="text" id="business" name="business" placeholder="$" />
+          <input type="text" id="business" name="business" placeholder="$" onchange="updateValues()" />
         </li>
         <li class="listItem">
           <img src="images/Frame.png" />
           <span>Other</span>
-          <input type="text" id="other" name="other" placeholder="$" />
+          <input type="text" id="other" name="other" placeholder="$" onchange="updateValues()" />
         </li>
       </ul>
       <section id="totalIncome" class="totalCounter">
         <p>Total Income:</span>
-        <p>$0.00</span>
+        <p id="income-total"></span>
       </section>
     </section>
 
 
     <!-- ANALYSTIS SECTION (CHART) -->
     <section id="analysis" class="mainSection">
-      <canvas id="pie-chart"></canvas> <!-- Use this for chart when you get unlucky enough to get to it-->
+      <canvas id="pie-chart"></canvas> <!-- Use this for chart when you get unlucky enough to get to it--> <!--Sighhhh i'll try-->
       <section class="analysisNumbers">
 
         <!-- Content will probably be changed via javascript to alter the totals -->
         <section class="analysisTotal">
           <p class="label">Total Income</p>
-          <p class="incomeTotal">$7676</p>
+          <p class="incomeTotal" id="income-total"></p>
         </section>
         <section class="analysisTotal">
           <p class="label">Total Expenses</p>
-          <p class="expensesTotal">$6767</p>
+          <p class="expensesTotal" id="expense-total"></p>
         </section>
         <section class="analysisRemaining">
           <h2>Remaining: </h2>
-          <h2>$909</h2>
+          <h2 id="net-total"></h2>
         </section>
       </section>
       <button id="review"><p>Show Results</p></button>
@@ -77,67 +79,67 @@
         <li class="listItem">
           <div id="house"></div>
           <span>Housing</span>
-          <input type="text" id="housing" name="housing" placeholder="$" />
+          <input type="text" id="housing" name="housing" placeholder="$" onchange="updateValues()"/>
         </li>
         <li class="listItem">
           <div id="util"></div>
           <span>Utilities</span>
-          <input type="text" id="utilities" name="utilities" placeholder="$" />
+          <input type="text" id="utilities" name="utilities" placeholder="$" onchange="updateValues()"/>
         </li>
         <li class="listItem">
           <div id="gro"></div>
           <span>Groceries</span>
-          <input type="text" id="groceries" name="groceries" placeholder="$" />
+          <input type="text" id="groceries" name="groceries" placeholder="$" onchange="updateValues()"/>
         </li>
         <li class="listItem">
           <div id="trans"></div>
           <span>Transportation</span>
-          <input type="text" id="transportation" name="transportation" placeholder="$" />
+          <input type="text" id="transportation" name="transportation" placeholder="$" onchange="updateValues()"/>
         </li>
         <li class="listItem">
           <div id="shop"></div>
           <span>Shopping</span>
-          <input type="text" id="shopping" name="shopping" placeholder="$" />
+          <input type="text" id="shopping" name="shopping" placeholder="$" onchange="updateValues()"/>
         </li>
         <li class="listItem">
           <div id="enter"></div>
           <span>Entertainment</span>
-          <input type="text" id="entertainment" name="entertainment" placeholder="$" />
+          <input type="text" id="entertainment" name="entertainment" placeholder="$" onchange="updateValues()"/>
         </li>
         <li class="listItem">
           <div id="subs"></div>
           <span>Subscriptions</span>
-          <input type="text" id="subscriptions" name="subscriptions" placeholder="$" />
+          <input type="text" id="subscriptions" name="subscriptions" placeholder="$" onchange="updateValues()"/>
         </li>
         <li class="listItem">
           <div id="heal"></div>
           <span>Health</span>
-          <input type="text" id="health" name="health" placeholder="$" />
+          <input type="text" id="health" name="health" placeholder="$" onchange="updateValues()"/>
         </li>
         <li class="listItem">
           <div id="net"></div>
           <span>Internet</span>
-          <input type="text" id="internet" name="internet" placeholder="$" />
+          <input type="text" id="internet" name="internet" placeholder="$" onchange="updateValues()"/>
         </li>
         <li class="listItem">
           <div id="edu"></div>
           <span>Education</span>
-          <input type="text" id="education" name="education" placeholder="$" />
+          <input type="text" id="education" name="education" placeholder="$" onchange="updateValues()"/>
         </li>
         <li class="listItem">
           <div id="save"></div>
           <span>Savings</span>
-          <input type="text" id="savings" name="savings" placeholder="$" />
+          <input type="text" id="savings" name="savings" placeholder="$" onchange="updateValues()"/>
         </li>
         <li class="listItem">
           <div id="trav"></div>
           <span>Travel</span>
-          <input type="text" id="other" name="other" placeholder="$" />
+          <input type="text" id="other" name="other" placeholder="$" onchange="updateValues()"/>
         </li>
       </ul>
       <section id="totalExpenses" class="totalCounter">
         <p>Total Expenses:</span>
-        <p>$0.00</span>
+        <p id="expense-total"></span>
       </section>
     </section>
   </main>
