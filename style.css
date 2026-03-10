@@ -1,179 +1,183 @@
 :root {
-  --primary-color: #0059a6;
-  --housing-color: #8c63da;
-  --util-color: #f4cf3b;
-  --groceries-color: #55c4ae;
-  --trans-color: #8979ff;
-  --shopping-color: #ffae4c;
-  --entertainment-color: #537ff1;
-  --subscriptions-color: #6fd195;
-  --health-color: #3cc3df;
-  --internet-color: #2bb7dc;
-  --education-color: #ff928a;
-  --savings-color: #6186cc;
-  --travel-color: #1f94ff;
-  --light-gray: #cecece;
-  --income-green: #F3FFF2;
-  --expenses-red: #FFF2F2; 
-  --small-border-radius: 10px;
-  --big-border-radius: 20px;
-  --font-family: Arial, sans-serif;
+    --primary-color: #0059a6;
+    --housing-color: #8c63da;
+    --util-color: #f4cf3b;
+    --groceries-color: #55c4ae;
+    --trans-color: #8979ff;
+    --shopping-color: #ffae4c;
+    --entertainment-color: #537ff1;
+    --subscriptions-color: #6fd195;
+    --health-color: #3cc3df;
+    --internet-color: #2bb7dc;
+    --education-color: #ff928a;
+    --savings-color: #6186cc;
+    --travel-color: #1f94ff;
+    --light-gray: #cecece;
+    --income-green: #f3fff2;
+    --expenses-red: #fff2f2;
+    --small-border-radius: 10px;
+    --big-border-radius: 20px;
+    --font-family: Arial, sans-serif;
 }
 
 /*these set the color dots for each of the monthly expenses*/
-#house{
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: var(--housing-color);
-  margin-right: 10px;
+#house {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(150, 150, 150);
+    margin-right: 10px;
 }
 
-#util{
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: var(--util-color);
-  margin-right: 10px;
+#util {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(150, 150, 150);
+    margin-right: 10px;
 }
 
-#gro{
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: var(--groceries-color);
-  margin-right: 10px;
+#gro {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(150, 150, 150);
+    margin-right: 10px;
 }
 
-#trans{
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: var(--trans-color);
-  margin-right: 10px;
+#trans {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(150, 150, 150);
+    margin-right: 10px;
 }
 
-#shop{
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: var(--shopping-color);
-  margin-right: 10px;
+#shop {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(150, 150, 150);
+    margin-right: 10px;
 }
 
-#enter{
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: var(--entertainment-color);
-  margin-right: 10px;
+#enter {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(150, 150, 150);
+    margin-right: 10px;
 }
 
-#subs{
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: var(--subscriptions-color);
-  margin-right: 10px;
+#subs {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(150, 150, 150);
+    margin-right: 10px;
 }
 
-#heal{
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: var(--health-color);
-  margin-right: 10px;
+#heal {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(150, 150, 150);
+    margin-right: 10px;
 }
 
-#net{
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: var(--internet-color);
-  margin-right: 10px;
+#net {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(150, 150, 150);
+    margin-right: 10px;
 }
 
-#edu{
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: var(--education-color);
-  margin-right: 10px;
+#edu {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(150, 150, 150);
+    margin-right: 10px;
 }
 
-#save{
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: var(--savings-color);
-  margin-right: 10px;
+#save {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(150, 150, 150);
+    margin-right: 10px;
 }
 
-#trav{
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: var(--travel-color);
-  margin-right: 10px;
+#trav {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(150, 150, 150);
+    margin-right: 10px;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
 }
 
 body {
-  margin: 65px;
-  margin-top: 35px;
+    margin: 65px;
+    margin-top: 35px;
 }
 
 nav h1 {
-  color: white;
+    color: white;
 }
 
 nav {
-  margin-bottom: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
-  display: flex;
-  flex-direction: row;
-  background-color: #0059a6;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 20px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: row;
+    background-color: #0059a6;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.menu {
+    display: contents;
 }
 
 main {
-  display: grid;
-  grid-template: auto / 1fr 1.5fr 1fr;
-  gap: 30px;  
+    display: grid;
+    grid-template: auto / 1fr 1.5fr 1fr;
+    gap: 30px;
 }
 
 .mainSection {
-  padding: 20px;
-  height: 100vh;
-  border-radius: var(--big-border-radius);
-  border: 1px solid var(--light-gray);
-  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.25);
-  & > button {
-    background-color: white;
-    display: flex;
-    justify-self: center;
-    width: 200px;
-    height: 50px;
-    border-radius: 10px;
-    border: none;
-    margin-top: 3em;
+    padding: 20px;
+    height: 100vh;
+    border-radius: var(--big-border-radius);
+    border: 1px solid var(--light-gray);
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.25);
-    justify-content: center;
-    & p {
-      font-size: 20px;
-      display: flex;
-      align-self: center;
+    & > button {
+        background-color: white;
+        display: flex;
+        justify-self: center;
+        width: 200px;
+        height: 50px;
+        border-radius: 10px;
+        border: none;
+        margin-top: 3em;
+        box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.25);
+        justify-content: center;
+        & p {
+            font-size: 20px;
+            display: flex;
+            align-self: center;
+        }
     }
-  }
 }
 
 .mainSection ul {
@@ -188,20 +192,20 @@ main {
 }
 
 .mainSection .totalCounter {
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
 
-  margin: 0px 20px; /* Side margins only */
+    margin: 0px 20px; /* Side margins only */
 
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.25);
 
-  font-size: 20px;
-  & > p:last-child {
-    font-weight: 600;
-  }
+    font-size: 20px;
+    & > p:last-child {
+        font-weight: 600;
+    }
 }
 
 /* Title */
@@ -210,86 +214,99 @@ section > h2 {
     font-weight: bold;
     margin-bottom: 20px;
     margin-top: 10px;
-    color: #2F733E;
+    color: #2f733e;
 }
-
 
 /* Monthy Income Section */
 
 #totalIncome {
-  background-color: var(--income-green);
+    background-color: var(--income-green);
 }
 
 /* Monthly Expenses Section */
 #expenses h2 {
-  color: #821314;
+    color: #821314;
 }
 
 #totalExpenses {
-  background-color: var(--expenses-red);
+    background-color: var(--expenses-red);
 }
 
-#incomeList img{
-  margin-right: 10px;
+#incomeList img {
+    margin-right: 10px;
 }
-
-
 
 /* Rows for inputs */
 section .listItem {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
 
-  padding: 10px 0;
-  border-bottom: 1px solid var(--light-gray);
-  color: black;
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0px 20px; /* Side margins only */
-  width: 90%;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--light-gray);
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0px 20px; /* Side margins only */
+    width: 90%;
 
-  & > input {
-    margin-left: auto;
-    width: 3vw;
-    min-width: 80px;
-    padding: 5px;
-    font-size: 16px;
-    box-shadow: 0 0 2px var(--light-gray);
-    border: 1px solid var(--light-gray);
-    border-radius: var(--small-border-radius);
-  }
+    & > input {
+        margin-left: auto;
+        width: 3vw;
+        min-width: 80px;
+        padding: 5px;
+        font-size: 16px;
+        box-shadow: 0 0 2px var(--light-gray);
+        border: 1px solid var(--light-gray);
+        border-radius: var(--small-border-radius);
+    }
 
-  & > p {
-    margin-left: 20px;
-  }
+    & > p {
+        margin-left: 20px;
+    }
 }
 
-.analysisNumbers { /* Make this justified center*/
-  display: flex;
-  justify-items: center;
-  flex-direction: column;
-  background-color: var(--income-green);
-  padding: 20px;
-  width: 450px;
-  height: 166px;
-  border-radius: 20px;
-  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.25);
-  
+.analysisNumbers {
+    /* Make this justified center*/
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    background-color: var(--income-green);
+    padding: 20px;
+    width: 450px;
+    height: 166px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.25);
 }
 
 .analysisNumbers section {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .analysisRemaining {
-  margin-top: 1em;
-  border-top: 1px rgba(0, 0, 0, 0.3) solid;
+    margin-top: 1em;
+    border-top: 1px rgba(0, 0, 0, 0.3) solid;
 }
 
 .analysisRemaining h2 {
-  color: black;
+    color: black;
+}
+
+.menu-dialog {
+    position: relative;
+    margin-top: 7rem;
+    margin-bottom: -7rem;
+    margin-left: 5rem;
+    margin-right: -5rem;
+    padding: 2rem 5rem;
+    border: none;
+    outline: none;
+    box-shadow: 0px 0px 5px black;
+    border-radius: 1rem;
+    & ul {
+        list-style-type: none;
+    }
 }
