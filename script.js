@@ -1,20 +1,109 @@
-//-- Main mouthly income//
-const salarySelect = document.getElementById('salary');
-const investSelect = document.getElementById('investments');
-const businessSelect = document.getElementById('business');
-const OtherSelect = document.getElementById('other');
+//-- Changeable text//
+const incomeTotalText = document.getElementById('income-total');
+const expensesTotalText = document.getElementById('expense-total');
+const netTotalText = document.getElementById('net-total');
 
-//-- Main budget //
-const houseSelect = document.getElementById('housing');
-const utilSelect = document.getElementById('utilities');
-const groceSelect = document.getElementById('groceries');
-const transSelect = document.getElementById('transportation');
-const shopSelect = document.getElementById('shopping');
-const entertainSelect = document.getElementById('entertainment');
-const subSelect = document.getElementById('subscriptions');
-const healthSelect = document.getElementById('health');
-const internetSelect = document.getElementById('internet');
-const eduSelect = document.getElementById('education');
-const saveSelect = document.getElementById('saving');
-const travelSelect = document.getElementById('travel');
+
+
+
+//-- Displaying the totals//
+function updateNumbers() {
+    // Helper function to get the value or return 0 if empty
+    const getValueOrZero = (id) => {
+        const element = document.getElementById(id);
+        if (!element) {
+            console.error(`Element with id "${id}" not found.`);
+            return 0; // Return 0 if the element does not exist
+        }
+        const value = element.value;
+        return value === "" ? 0 : parseFloat(value) || 0; // Return 0 if empty or invalid
+    };
+
+    // Get values from inputs
+    const salary = getValueOrZero("salary");
+    const investments = getValueOrZero("investments");
+    const business = getValueOrZero("business");
+    const other = getValueOrZero("other");
+
+    // Calculate total income
+    const totalIncome = salary + investments + business + other;
+
+    // Update the total income display
+    document.getElementById("income-total").textContent = `$${totalIncome.toFixed(2)}`;
+
+    //-- Expenses//
+    const housing = getValueOrZero("housing");
+    const utilities = getValueOrZero("utilities");
+    const groceries = getValueOrZero("groceries");
+    const transportation = getValueOrZero("transportation");
+    const shopping = getValueOrZero("shopping");
+    const entertainment = getValueOrZero("entertainment");
+    const subscriptions = getValueOrZero("subscriptions");
+    const health = getValueOrZero("health");
+    const internet = getValueOrZero("internet");
+    const education = getValueOrZero("education");
+    const saving = getValueOrZero("save");
+    const travel = getValueOrZero("trav");
+    const totalExpenses = housing + utilities + groceries + transportation + shopping + entertainment + subscriptions + health + internet + education + saving + travel;
+    document.getElementById('expense-total').textContent = `$${totalExpenses.toFixed(2)}`;
+
+    //-- Net Total//
+    const netTotal = totalIncome - totalExpenses;
+    document.getElementById("net-total").textContent = `$${netTotal.toFixed(2)}`;
+}
+
+
+
+
+//-- Format to chart data//
+
+function updateChart() {
+    const getValueOrZero = (id) => {
+        const element = document.getElementById(id);
+        if (!element) {
+            console.error(`Element with id "${id}" not found.`);
+            return 0; // Return 0 if the element does not exist
+        }
+        const value = element.value;
+        return value === "" ? 0 : parseFloat(value) || 0; // Return 0 if empty or invalid
+    };
+
+    const housing = getValueOrZero("housing");
+    const utilities = getValueOrZero("utilities");
+    const groceries = getValueOrZero("groceries");
+    const transportation = getValueOrZero("transportation");
+    const shopping = getValueOrZero("shopping");
+    const entertainment = getValueOrZero("entertainment");
+    const subscriptions = getValueOrZero("subscriptions");
+    const health = getValueOrZero("health");
+    const internet = getValueOrZero("internet");
+    const education = getValueOrZero("education");
+    const saving = getValueOrZero("save");
+    const travel = getValueOrZero("trav");
+    const salary = getValueOrZero("salary");
+    const investments = getValueOrZero("investments");
+    const business = getValueOrZero("business");
+    const other = getValueOrZero("other");
+    return [ saving, transportation, groceries, education, utilities, health, travel, shopping, internet, entertainment, housing, subscriptions, salary, investments, business, other];
+}
+
+
+function updateValues() {
+    updateChart()
+    updateNumbers()   
+}
+//-- Chart//
+ const ctx = document.getElementById('pie-chart').getContext('2d');
+
+   new Chart(ctx, {
+     type: 'doughnut',
+     data: {
+       labels: ['Savings', 'Transportation', 'Groceries', 'Education','Utilities','Health','Travel','Shopping','Internet','Entertainment','Housing','Subscriptions'],
+       datasets: [{
+         label: '# of Votes',
+         data: updateChart(),
+         borderWidth: 1
+       }]
+     },
+   });
 
