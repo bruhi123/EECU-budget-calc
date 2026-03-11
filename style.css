@@ -305,14 +305,31 @@ section .listItem {
     position: relative;
     margin-top: 7rem;
     margin-bottom: -7rem;
-    margin-left: 5rem;
+    margin-left: 4rem;
     margin-right: -5rem;
-    padding: 2rem 5rem;
+    padding: 1rem 2rem;
     border: none;
     outline: none;
-    box-shadow: 0px 0px 5px black;
-    border-radius: 1rem;
+    box-shadow: 0px 0px 5px rgb(156, 156, 156);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
     & ul {
         list-style-type: none;
+        font-size: 24px;
+        display: flex;
+        height: 300px;
+        width: 300px;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    & li {
+        border-bottom: solid #CECECE;
+        height: 46px;
+    }
+    & .login {
+        color: #0059A6;
+    }
+    & .logout {
+        color: #821314;
     }
 }
