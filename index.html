@@ -12,7 +12,19 @@
 
 <body>
   <nav>
-    <img src="images/menu.png" />
+    <button class="menu" command="show-modal" commandfor="menu">
+      <img src="images/menu.png" />
+    </button>
+    <dialog class="menu-dialog" closedby="any" id="menu">
+      <ul>
+        <li>
+          Budget Calculator
+        </li>
+        <li>Settings</li>
+        <li>Log In</li>
+        <li>Log Out</li>
+      </ul>
+    </dialog>
     <h1>Budget Calculator</h1>
     <img src="images/eecu.png" />
   </nav>
@@ -25,22 +37,22 @@
         <li class="listItem">
           <img src="images/Frame.png" />
           <span>Salary</span>
-          <input type="text" id="salary" name="salary" placeholder="$" onchange="updateValues()" />
+          <input type="text" id="salary" name="salary" placeholder="$" />
         </li>
         <li class="listItem">
           <img src="images/Frame.png" />
           <span>Investments</span>
-          <input type="text" id="investments" name="investments" placeholder="$" onchange="updateValues()" />
+          <input type="text" id="investments" name="investments" placeholder="$" />
         </li>
         <li class="listItem">
           <img src="images/Frame.png" />
           <span>Business</span>
-          <input type="text" id="business" name="business" placeholder="$" onchange="updateValues()" />
+          <input type="text" id="business" name="business" placeholder="$" />
         </li>
         <li class="listItem">
           <img src="images/Frame.png" />
           <span>Other</span>
-          <input type="text" id="other" name="other" placeholder="$" onchange="updateValues()" />
+          <input type="text" id="other" name="other" placeholder="$" />
         </li>
       </ul>
       <section id="totalIncome" class="totalCounter">
@@ -79,62 +91,62 @@
         <li class="listItem">
           <div id="house"></div>
           <span>Housing</span>
-          <input type="text" id="housing" name="housing" placeholder="$" onchange="updateValues()"/>
+          <input type="text" id="housing" name="housing" placeholder="$" />
         </li>
         <li class="listItem">
           <div id="util"></div>
           <span>Utilities</span>
-          <input type="text" id="utilities" name="utilities" placeholder="$" onchange="updateValues()"/>
+          <input type="text" id="utilities" name="utilities" placeholder="$" />
         </li>
         <li class="listItem">
           <div id="gro"></div>
           <span>Groceries</span>
-          <input type="text" id="groceries" name="groceries" placeholder="$" onchange="updateValues()"/>
+          <input type="text" id="groceries" name="groceries" placeholder="$" />
         </li>
         <li class="listItem">
           <div id="trans"></div>
           <span>Transportation</span>
-          <input type="text" id="transportation" name="transportation" placeholder="$" onchange="updateValues()"/>
+          <input type="text" id="transportation" name="transportation" placeholder="$" />
         </li>
         <li class="listItem">
           <div id="shop"></div>
           <span>Shopping</span>
-          <input type="text" id="shopping" name="shopping" placeholder="$" onchange="updateValues()"/>
+          <input type="text" id="shopping" name="shopping" placeholder="$" />
         </li>
         <li class="listItem">
           <div id="enter"></div>
           <span>Entertainment</span>
-          <input type="text" id="entertainment" name="entertainment" placeholder="$" onchange="updateValues()"/>
+          <input type="text" id="entertainment" name="entertainment" placeholder="$" />
         </li>
         <li class="listItem">
           <div id="subs"></div>
           <span>Subscriptions</span>
-          <input type="text" id="subscriptions" name="subscriptions" placeholder="$" onchange="updateValues()"/>
+          <input type="text" id="subscriptions" name="subscriptions" placeholder="$" />
         </li>
         <li class="listItem">
           <div id="heal"></div>
           <span>Health</span>
-          <input type="text" id="health" name="health" placeholder="$" onchange="updateValues()"/>
+          <input type="text" id="health" name="health" placeholder="$" />
         </li>
         <li class="listItem">
           <div id="net"></div>
           <span>Internet</span>
-          <input type="text" id="internet" name="internet" placeholder="$" onchange="updateValues()"/>
+          <input type="text" id="internet" name="internet" placeholder="$" />
         </li>
         <li class="listItem">
           <div id="edu"></div>
           <span>Education</span>
-          <input type="text" id="education" name="education" placeholder="$" onchange="updateValues()"/>
+          <input type="text" id="education" name="education" placeholder="$" />
         </li>
         <li class="listItem">
           <div id="save"></div>
           <span>Savings</span>
-          <input type="text" id="savings" name="savings" placeholder="$" onchange="updateValues()"/>
+          <input type="text" id="savings" name="savings" placeholder="$" />
         </li>
         <li class="listItem">
           <div id="trav"></div>
           <span>Travel</span>
-          <input type="text" id="other" name="other" placeholder="$" onchange="updateValues()"/>
+          <input type="text" id="other" name="other" placeholder="$" />
         </li>
       </ul>
       <section id="totalExpenses" class="totalCounter">
