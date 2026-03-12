@@ -37,16 +37,21 @@
         <li class="listItem">
           <img src="images/Frame.png" />
           <span>Job</span>
-          <select name="job" id="selectJob">
-            
+          <select name="job" id="selectJob" placeholder="hello">
+            <option disabled selected hidden>Select your job</option>
           </select>
         </li>
         <li class="listItem">
           <img src="images/Frame.png" />
-          <span>Income:</span>
-          <input type="text" id="other" name="other" placeholder="$" />
+          <span>Monthly income:</span>
+          <label id="salaryContainer">$<span id="salary"></span></label>
         </li>
+        <li class="listItem">
+          <img src="images/minus.png" />
+          <span>Monthly taxes:</span>
+          <label id="salaryContainer">$<span id="taxes"></span></label>
       </ul>
+      
       <section id="totalIncome" class="totalCounter">
         <p>Total Income:</span>
         <p id="income-total"></span>
@@ -138,7 +143,7 @@
         <li class="listItem">
           <div id="trav"></div>
           <span>Travel</span>
-          <input type="text" id="other" name="other" placeholder="$" />
+          <input type="text" id="travel" name="travel" placeholder="$" />
         </li>
       </ul>
       <section id="totalExpenses" class="totalCounter">

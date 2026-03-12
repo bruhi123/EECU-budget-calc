@@ -251,6 +251,35 @@ section .listItem {
     margin: 0px 20px; /* Side margins only */
     width: 90%;
 
+    & img {
+            width: 30px;
+            height: 30px;
+        }
+
+    & > select {
+        margin-left: auto;
+        width: 12vw;
+        min-width: 80px;
+        padding: 5px;
+        font-size: 16px;
+        box-shadow: 0 0 2px var(--light-gray);
+        border: 1px solid var(--light-gray);
+        border-radius: var(--small-border-radius);
+    }
+
+    & > label {
+        margin-left: auto;
+        width: 4vw;
+        min-width: 80px;
+        padding: 5px;
+        font-size: 16px;
+        box-shadow: 0 0 2px var(--light-gray);
+        border: 1px solid var(--light-gray);
+        border-radius: var(--small-border-radius);
+        color: rgb(64, 64, 64)
+        ;
+    }
+
     & > input {
         margin-left: auto;
         width: 3vw;
@@ -260,6 +289,8 @@ section .listItem {
         box-shadow: 0 0 2px var(--light-gray);
         border: 1px solid var(--light-gray);
         border-radius: var(--small-border-radius);
+        color: rgb(64, 64, 64)
+        ;
     }
 
     & > p {
@@ -305,7 +336,7 @@ section .listItem {
     position: relative;
     margin-top: 6.85rem;
     margin-bottom: -7rem;
-    margin-left: 5.rem;
+    margin-left: 5rem;
     margin-right: -5rem;
     padding: 1rem 2rem;
     border: none;

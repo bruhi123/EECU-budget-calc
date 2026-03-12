@@ -16,19 +16,17 @@ function updateNumbers() {
         return value === '' ? 0 : parseFloat(value) || 0; // Return 0 if empty or invalid
     };
 
-    // Get values from inputs
-    const salary = getValueOrZero('salary');
-    const investments = getValueOrZero('investments');
-    const business = getValueOrZero('business');
-    const other = getValueOrZero('other');
+    // Get values form income
+    const grossIncome = getValueOrZero('annualy-income');
+    const taxes = getValueOrZero('annualy-taxes');
 
     // Calculate total income
-    const totalIncome = salary + investments + business + other;
+    const totalIncome = grossIncome - taxes;
 
     // Update the total income display
-    document.getElementById(
-        'income-total'
-    ).textContent = `$${totalIncome.toFixed(2)}`;
+    document.getElementById('income-total').textContent = `$${totalIncome.toFixed(
+        2
+    )}`;
 
     //-- Expenses//
     const housing = getValueOrZero('housing');
@@ -41,8 +39,8 @@ function updateNumbers() {
     const health = getValueOrZero('health');
     const internet = getValueOrZero('internet');
     const education = getValueOrZero('education');
-    const saving = getValueOrZero('save');
-    const travel = getValueOrZero('trav');
+    const saving = getValueOrZero('savings');
+    const travel = getValueOrZero('travel');
     const totalExpenses =
         housing +
         utilities +
@@ -90,12 +88,9 @@ function updateChart() {
     const health = getValueOrZero('health');
     const internet = getValueOrZero('internet');
     const education = getValueOrZero('education');
-    const saving = getValueOrZero('save');
-    const travel = getValueOrZero('trav');
-    // const salary = getValueOrZero('salary');
-    // const investments = getValueOrZero('investments');
-    // const business = getValueOrZero('business');
-    // const other = getValueOrZero('other');
+    const saving = getValueOrZero('savings');
+    const travel = getValueOrZero('travel');
+
     return [
         saving,
         transportation,
@@ -109,10 +104,6 @@ function updateChart() {
         entertainment,
         housing,
         subscriptions
-        // salary,
-        // investments,
-        // business,
-        // other
     ];
 }
 
@@ -195,4 +186,33 @@ show_results.addEventListener('click', update);
 
 update();
 
-// const menu_btn = /** @type {HTMLButtonElement} */ (document.querySelector('.menu'));
+
+//fetch API
+const salary = document.getElementById('salary');
+
+async function jobSelector() {
+    const selectCareer = document.getElementById('selectJob');
+    const careerSalaryMap = new Map();
+    try {
+        const response = await fetch('https://eecu-data-server.vercel.app/data');
+        if (!response.ok) {
+            throw new Error('Network response was not okay');
+        }
+
+        const users = await response.json();
+
+        users.forEach(user => {
+            careerSalaryMap.set(user["Occupation"], user["Salary"]);
+            const option = new Option(user["Occupation"], user["Occupation"]);
+            selectCareer.add(option);
+        });
+
+        selectCareer.addEventListener('change', () => {
+            salary.textContent = careerSalaryMap.get(selectCareer.value) || '';
+        })
+    } catch (error) {
+        console.error('There was a problem with the fetch operation:', error);
+    }
+}
+
+jobSelector();
