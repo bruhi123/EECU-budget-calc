@@ -1,3 +1,32 @@
+//fetch API
+
+async function jobSelector() {
+    const selectCareer = document.getElementById('selectJob');
+    const careerSalaryMap = new Map();
+    try {
+        const response = await fetch('https://eecu-data-server.vercel.app/data');
+        if (!response.ok) {
+            throw new Error('Network response was not okay');
+        }
+
+        const users = await response.json();
+
+        users.forEach(user => {
+            careerSalaryMap.set(user["Occupation"], user["Salary"]);
+            const option = new Option(user["Occupation"], user["Occupation"]);
+            selectCareer.add(option);
+        });
+
+        selectCareer.addEventListener('change', () => {
+            salary.textContent = careerSalaryMap.get(selectCareer.value) || '';
+        })
+    } catch (error) {
+        console.error('There was a problem with the fetch operation:', error);
+    }
+}
+
+jobSelector();
+
 //-- Changeable text//
 const incomeTotalText = document.getElementById('income-total');
 const expensesTotalText = document.getElementById('expense-total');
@@ -16,12 +45,34 @@ function updateNumbers() {
         return value === '' ? 0 : parseFloat(value) || 0; // Return 0 if empty or invalid
     };
 
-    // Get values form income
-    const grossIncome = getValueOrZero('annualy-income');
-    const taxes = getValueOrZero('annualy-taxes');
+
+    // taxes systemn calculation
+    function calculateFederalTax(taxableIncome) {
+        let tax = 0;
+
+        if (taxableIncome <= 12400) {
+            tax = taxableIncome * 0.10;
+        }
+        else if (taxableIncome <= 50400) {
+            tax = (12400 * 0.10) +
+                ((taxableIncome - 12400) * 0.12);
+        }
+        else {
+            tax = (12400 * 0.10) +
+                ((50400 - 12400) * 0.12) +
+                ((taxableIncome - 50400) * 0.22);
+        }
+        return tax;
+    }
+
+    // Get values from income
+    const salary = getValueOrZero('salary');
+    const taxes = getValueOrZero('taxes');
+
+    let taxesCalc = calculateFederalTax(taxes)
 
     // Calculate total income
-    const totalIncome = grossIncome - taxes;
+    const totalIncome = salary - taxesCalc;
 
     // Update the total income display
     document.getElementById('income-total').textContent = `$${totalIncome.toFixed(
@@ -139,11 +190,11 @@ function update() {
                     borderWidth: 1,
                     ...(values.every(value => value === 0)
                         ? {
-                              backgroundColor: Array(values.length).fill(
-                                  'rgb(150, 150, 150)'
-                              ),
-                              borderColor: 'rgb(150, 150, 150)'
-                          }
+                            backgroundColor: Array(values.length).fill(
+                                'rgb(150, 150, 150)'
+                            ),
+                            borderColor: 'rgb(150, 150, 150)'
+                        }
                         : {})
                 }
             ]
@@ -160,7 +211,7 @@ function update() {
         }
         dot.style.backgroundColor =
             current_chart.data.datasets[0].backgroundColor[
-                labels.indexOf(label)
+            labels.indexOf(label)
             ];
     }
     for (const label of all_labels.filter(label => !labels.includes(label))) {
@@ -187,32 +238,22 @@ show_results.addEventListener('click', update);
 update();
 
 
-//fetch API
-const salary = document.getElementById('salary');
 
-async function jobSelector() {
-    const selectCareer = document.getElementById('selectJob');
-    const careerSalaryMap = new Map();
-    try {
-        const response = await fetch('https://eecu-data-server.vercel.app/data');
-        if (!response.ok) {
-            throw new Error('Network response was not okay');
-        }
 
-        const users = await response.json();
+//Mobie Navigation
+const incomeSecion = document.getElementById('income');
+const analysisSecion = document.getElementById('analysis');
+const expensesSection = document.getElementById('expenses');
+const nextMobile = document.getElementById('next-mobile')
 
-        users.forEach(user => {
-            careerSalaryMap.set(user["Occupation"], user["Salary"]);
-            const option = new Option(user["Occupation"], user["Occupation"]);
-            selectCareer.add(option);
-        });
 
-        selectCareer.addEventListener('change', () => {
-            salary.textContent = careerSalaryMap.get(selectCareer.value) || '';
-        })
-    } catch (error) {
-        console.error('There was a problem with the fetch operation:', error);
-    }
+function nextBtnMobile() {
+    incomeSecion.classList.add('hidden');
+    incomeSecion.classList.remove('view');
+
+    //Make anaylsis apear
 }
 
-jobSelector();
+nextMobile.addEventListener('click', () => {
+    nextBtnMobile();
+})

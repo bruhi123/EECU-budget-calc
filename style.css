@@ -161,7 +161,8 @@ main {
     border-radius: var(--big-border-radius);
     border: 1px solid var(--light-gray);
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.25);
-    & > button {
+
+    &>button {
         background-color: white;
         display: flex;
         justify-self: center;
@@ -172,6 +173,7 @@ main {
         margin-top: 3em;
         box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.25);
         justify-content: center;
+
         & p {
             font-size: 20px;
             display: flex;
@@ -196,20 +198,22 @@ main {
     justify-content: space-between;
     align-content: center;
 
-    margin: 0px 20px; /* Side margins only */
+    margin: 0px 20px;
+    /* Side margins only */
 
     padding: 10px;
     border-radius: 10px;
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.25);
 
     font-size: 20px;
-    & > p:last-child {
+
+    &>p:last-child {
         font-weight: 600;
     }
 }
 
 /* Title */
-section > h2 {
+section>h2 {
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -248,15 +252,16 @@ section .listItem {
     color: black;
     font-size: 20px;
     font-weight: bold;
-    margin: 0px 20px; /* Side margins only */
+    margin: 0px 20px;
+    /* Side margins only */
     width: 90%;
 
     & img {
-            width: 30px;
-            height: 30px;
-        }
+        width: 30px;
+        height: 30px;
+    }
 
-    & > select {
+    &>select {
         margin-left: auto;
         width: 12vw;
         min-width: 80px;
@@ -267,7 +272,7 @@ section .listItem {
         border-radius: var(--small-border-radius);
     }
 
-    & > label {
+    &>label {
         margin-left: auto;
         width: 4vw;
         min-width: 80px;
@@ -276,11 +281,10 @@ section .listItem {
         box-shadow: 0 0 2px var(--light-gray);
         border: 1px solid var(--light-gray);
         border-radius: var(--small-border-radius);
-        color: rgb(64, 64, 64)
-        ;
+        color: rgb(64, 64, 64);
     }
 
-    & > input {
+    &>input {
         margin-left: auto;
         width: 3vw;
         min-width: 80px;
@@ -289,11 +293,10 @@ section .listItem {
         box-shadow: 0 0 2px var(--light-gray);
         border: 1px solid var(--light-gray);
         border-radius: var(--small-border-radius);
-        color: rgb(64, 64, 64)
-        ;
+        color: rgb(64, 64, 64);
     }
 
-    & > p {
+    &>p {
         margin-left: 20px;
     }
 }
@@ -344,6 +347,7 @@ section .listItem {
     box-shadow: 0px 0px 5px rgb(156, 156, 156);
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
+
     & ul {
         list-style-type: none;
         font-size: 24px;
@@ -353,14 +357,52 @@ section .listItem {
         flex-direction: column;
         justify-content: space-around;
     }
+
     & li {
         border-bottom: solid #CECECE;
         height: 46px;
     }
+
     & .login {
         color: #0059A6;
     }
+
     & .logout {
         color: #821314;
     }
+}
+
+.pie-chart {
+    width: 200px;
+}
+
+#mobile-nav {
+    display: none;
+}
+
+@media (max-width: 600px) {
+
+    .view {
+        display: block;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    #mobile-nav {
+        display: block;
+    }
+
+
+
+
+
+
+
+
+
+
+
+    
 }

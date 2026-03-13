@@ -27,11 +27,17 @@
     </dialog>
     <h1>Budget Calculator</h1>
     <img src="images/eecu.png" />
+    <section id="mobile-nav">
+      <div>circle1</div>
+      <div>circle2</div>
+      <div>circle3</div>
+    </section>
   </nav>
 
-  <!-- INCOME SECTION -->
   <main>
-    <section id="income" class="mainSection">
+
+    <!-- INCOME SECTION -->
+    <section id="income" class="mainSection view">
       <h2>Monthly Income</h2>
       <ul id="incomeList">
         <li class="listItem">
@@ -49,18 +55,20 @@
         <li class="listItem">
           <img src="images/minus.png" />
           <span>Monthly taxes:</span>
-          <label id="salaryContainer">$<span id="taxes"></span></label>
+          <label id="taxesContainer">$<span id="taxes"></span></label>
       </ul>
       
       <section id="totalIncome" class="totalCounter">
         <p>Total Income:</span>
         <p id="income-total"></span>
       </section>
+
+      <button id="next-mobile">Next</button>
     </section>
 
 
     <!-- ANALYSTIS SECTION (CHART) -->
-    <section id="analysis" class="mainSection">
+    <section id="analysis" class="mainSection hidden">
       <canvas id="pie-chart"></canvas>
       <section class="analysisNumbers">
 
@@ -82,7 +90,7 @@
     </section>
 
     <!-- EXPENSES SECTION -->
-    <section id="expenses" class="mainSection">
+    <section id="expenses" class="mainSection hidden">
       <h2>Monthly Expenses</h2>
       <ul id="expensesList">
         <li class="listItem">
