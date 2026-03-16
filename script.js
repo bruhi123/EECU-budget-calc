@@ -321,18 +321,32 @@ viewResultsButton.addEventListener("click", showResults);
 goBackButton.addEventListener("click", goBack);
 backNav.addEventListener("click", goBackToIncome);
 
-// hide buttons and bakc button in the desktop version
-if (window.innerWidth > 600) {
+// hide buttons and back button in the desktop version
+function buttonHide() {
     const buttonsHide = [
         document.getElementById('next-mobile'),
         document.getElementById('view-results'),
         document.getElementById('go-back'),
         document.getElementById('back-nav'),
-    ];
+    ].filter(Boolean);
 
+    const shouldHide = window.innerWidth > 600;
     buttonsHide.forEach(button => {
-        if (button) {
-            button.style.display = 'none';
-        }
+        button.style.display = shouldHide ? 'none' : '';
     });
 }
+window.addEventListener('resize', buttonHide);
+buttonHide();
+
+const saving = getValueOrZero('savings');
+const reminder = document.querySelector('#expensesList p')
+console.log(reminder)
+if (saving < totalIncome / 10) {
+    reminder.style.display = 'block';
+}
+else if (saving > totalIncome / 10) {
+    reminder.style.display = 'none';
+}
+
+
+
