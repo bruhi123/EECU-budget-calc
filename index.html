@@ -12,7 +12,10 @@
 
 <body>
   <nav>
-    <button class="menu" command="show-modal" commandfor="menu">
+    <button id="back-nav" class="navBack hidden">
+      <img src="images/image6.png">
+    </button>
+    <button id="menu-button" class="menu" command="show-modal" commandfor="menu">
       <img src="images/menu.png" />
     </button>
     <dialog class="menu-dialog" closedby="any" id="menu">
@@ -27,16 +30,16 @@
     </dialog>
     <h1>Budget Calculator</h1>
     <img src="images/eecu.png" />
-    <section id="mobile-nav">
-      <div>circle1</div>
-      <div>circle2</div>
-      <div>circle3</div>
-    </section>
   </nav>
 
   <main>
 
     <!-- INCOME SECTION -->
+    <section id="mobile-nav">
+      <div id="step1" class="active">1</div>
+      <div id="step2">2</div>
+      <div id="step3">3</div>
+    </section>
     <section id="income" class="mainSection view">
       <h2>Monthly Income</h2>
       <ul id="incomeList">
@@ -56,11 +59,12 @@
           <img src="images/minus.png" />
           <span>Monthly taxes:</span>
           <label id="taxesContainer">$<span id="taxes"></span></label>
+        </li>
       </ul>
-      
+
       <section id="totalIncome" class="totalCounter">
-        <p>Total Income:</span>
-        <p id="income-total"></span>
+        <p>Total Income:</p>
+        <p id="income-total"></p>
       </section>
 
       <button id="next-mobile">Next</button>
@@ -71,22 +75,23 @@
     <section id="analysis" class="mainSection hidden">
       <canvas id="pie-chart"></canvas>
       <section class="analysisNumbers">
-
-        <!-- Content will probably be changed via javascript to alter the totals -->
         <section class="analysisTotal">
           <p class="label">Total Income</p>
-          <p class="incomeTotal" id="income-total"></p>
+          <p class="incomeTotal" id="analysis-income"></p>
         </section>
         <section class="analysisTotal">
           <p class="label">Total Expenses</p>
-          <p class="expensesTotal" id="expense-total"></p>
+          <p class="expensesTotal" id="analysis-expenses"></p>
         </section>
         <section class="analysisRemaining">
           <h2>Remaining: </h2>
           <h2 id="net-total"></h2>
         </section>
       </section>
-      <button id="review"><p>Show Results</p></button>
+      <button id="review">
+        <p>Show Results</p>
+      </button>
+      <button id="go-back">Go Back</button>
     </section>
 
     <!-- EXPENSES SECTION -->
@@ -155,9 +160,10 @@
         </li>
       </ul>
       <section id="totalExpenses" class="totalCounter">
-        <p>Total Expenses:</span>
-        <p id="expense-total"></span>
+        <p>Total Expenses:</p>
+        <p id="expense-total"></p>
       </section>
+      <button id="view-results">View Results</button>
     </section>
   </main>
 </body>

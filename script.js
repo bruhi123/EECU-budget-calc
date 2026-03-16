@@ -12,13 +12,18 @@ async function jobSelector() {
         const users = await response.json();
 
         users.forEach(user => {
-            careerSalaryMap.set(user["Occupation"], user["Salary"]);
+            const monthlySalary = Math.round(parseFloat(user["Salary"]) / 12);
+            careerSalaryMap.set(user["Occupation"], monthlySalary);
             const option = new Option(user["Occupation"], user["Occupation"]);
             selectCareer.add(option);
         });
 
         selectCareer.addEventListener('change', () => {
-            salary.textContent = careerSalaryMap.get(selectCareer.value) || '';
+            const salaryValue = careerSalaryMap.get(selectCareer.value) || 0;
+
+            document.getElementById("salary").textContent = salaryValue;
+
+            updateNumbers();
         })
     } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
@@ -66,18 +71,14 @@ function updateNumbers() {
     }
 
     // Get values from income
-    const salary = getValueOrZero('salary');
-    const taxes = getValueOrZero('taxes');
+    const salary = parseFloat(document.getElementById("salary").textContent) || 0;
 
-    let taxesCalc = calculateFederalTax(taxes)
+    let taxesCalc = calculateFederalTax(salary)
+
+    document.getElementById("taxes").textContent = taxesCalc.toFixed(2);
 
     // Calculate total income
     const totalIncome = salary - taxesCalc;
-
-    // Update the total income display
-    document.getElementById('income-total').textContent = `$${totalIncome.toFixed(
-        2
-    )}`;
 
     //-- Expenses//
     const housing = getValueOrZero('housing');
@@ -105,9 +106,22 @@ function updateNumbers() {
         education +
         saving +
         travel;
-    document.getElementById(
-        'expense-total'
-    ).textContent = `$${totalExpenses.toFixed(2)}`;
+
+    // Update the total income display
+    document.getElementById('income-total').textContent = `$${totalIncome.toFixed(
+        2
+    )}`;
+    document.getElementById('analysis-income').textContent = `$${totalIncome.toFixed(
+        2
+    )}`;
+
+    // Update the total expense display
+    document.getElementById('expense-total').textContent = `$${totalExpenses.toFixed(
+        2
+    )}`;
+    document.getElementById('analysis-expenses').textContent = `$${totalExpenses.toFixed(
+        2
+    )}`;
 
     //-- Net Total//
     const netTotal = totalIncome - totalExpenses;
@@ -237,23 +251,88 @@ show_results.addEventListener('click', update);
 
 update();
 
-
-
-
-//Mobie Navigation
-const incomeSecion = document.getElementById('income');
-const analysisSecion = document.getElementById('analysis');
+//sections
+const incomeSection = document.getElementById('income');
+const analysisSection = document.getElementById('analysis');
 const expensesSection = document.getElementById('expenses');
-const nextMobile = document.getElementById('next-mobile')
 
+// buttons
+const nextButton = document.getElementById('next-mobile');
+const viewResultsButton = document.getElementById('view-results');
+const goBackButton = document.getElementById('go-back');
+const menuButton = document.getElementById("menu-button");
+const backNav = document.getElementById("back-nav");
 
-function nextBtnMobile() {
-    incomeSecion.classList.add('hidden');
-    incomeSecion.classList.remove('view');
+// steps
+const step1 = document.getElementById('step1');
+const step2 = document.getElementById('step2');
+const step3 = document.getElementById('step3');
 
-    //Make anaylsis apear
+// shows the expenses section
+function showExpenses() {
+    incomeSection.classList.add('hidden');
+    expensesSection.classList.remove('hidden');
+    step1.classList.remove("active");
+    step1.classList.add("complete");
+    step2.classList.add("active");
+    backNav.classList.remove("hidden");
+    menuButton.classList.add("hidden");
 }
 
-nextMobile.addEventListener('click', () => {
-    nextBtnMobile();
-})
+// shows the analysis section
+function showResults() {
+    expensesSection.classList.add("hidden");
+    analysisSection.classList.remove("hidden");
+    step2.classList.remove("active");
+    step2.classList.add("complete");
+    step3.classList.add("active");
+    backNav.classList.add("hidden");
+    menuButton.classList.remove("hidden");
+    update();
+}
+
+// goes back to the expenses section
+function goBack() {
+    analysisSection.classList.add("hidden");
+    expensesSection.classList.remove("hidden");
+    step3.classList.remove("active");
+    step3.classList.remove("complete");
+    step2.classList.add("active");
+    step2.classList.remove("complete");
+    backNav.classList.remove("hidden");
+    menuButton.classList.add("hidden");
+}
+
+// goes back to the income section
+function goBackToIncome() {
+    expensesSection.classList.add("hidden");
+    incomeSection.classList.remove("hidden");
+    step2.classList.remove("active");
+    step2.classList.remove("complete");
+    step1.classList.add("active");
+    step1.classList.remove("complete");
+    backNav.classList.add("hidden");
+    menuButton.classList.remove("hidden");
+}
+
+// when clicked buttons it displays the functions
+nextButton.addEventListener("click", showExpenses);
+viewResultsButton.addEventListener("click", showResults);
+goBackButton.addEventListener("click", goBack);
+backNav.addEventListener("click", goBackToIncome);
+
+// hide buttons and bakc button in the desktop version
+if (window.innerWidth > 600) {
+    const buttonsHide = [
+        document.getElementById('next-mobile'),
+        document.getElementById('view-results'),
+        document.getElementById('go-back'),
+        document.getElementById('back-nav'),
+    ];
+
+    buttonsHide.forEach(button => {
+        if (button) {
+            button.style.display = 'none';
+        }
+    });
+}
